@@ -64,7 +64,7 @@ export const theme = createTheme({
             styleOverrides: {
                 root: {
                     color: 'white',
-                    fontSize: '2em',
+                    fontSize: '1em',
                     '&.Mui-selected': {
                         color: secondaryColor,
                     },
