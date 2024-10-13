@@ -1,16 +1,26 @@
-import { Box, Button, Grid2, Tab, Tabs, TextField, Typography } from '@mui/material';
+import { Box, Button, Checkbox, FormControlLabel, Grid2, Tab, Tabs, TextField, Typography } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
+import { useNavigate } from 'react-router-dom'
 
 function Starting() {
-    const [value, setValue] = useState('0'); // Değeri string olarak ayarlayın
+    const navigation = useNavigate();
+
+    const [value, setValue] = useState('0');
+    const [checked, setChecked] = useState(false);
+
 
     const handleChange = (event, newValue) => {
-        setValue(newValue); // newValue zaten string formatında olacak
+        setValue(newValue);
     };
 
+    const handleCheckbox = () => {
+        setChecked(!checked);
+    }
+
     const loginFormik = useFormik({
+
         initialValues: {
             email: '',
             password: '',
@@ -21,13 +31,15 @@ function Starting() {
     });
 
     const registerFormik = useFormik({
+
         initialValues: {
             email: '',
             password: '',
             username: '',
         },
         onSubmit: (values) => {
-            console.log('Register Values:', values);
+            console.log(values)
+            setValue('0')
         },
     });
 
@@ -39,14 +51,15 @@ function Starting() {
             justifyContent={'center'}
             alignItems={'center'}
         >
-            <Grid2 size={12}>
+            <Grid2 size={12}
+            >
                 <Box className='content-container' flexDirection={'column'}>
                     <TabContext value={value}>
                         <Box
                             display={'flex'}
                             justifyContent={'center'}
+                            p={2}
                         >
-
                             <Tabs value={value} onChange={handleChange}
                             >
                                 <Tab value="0"
@@ -56,130 +69,170 @@ function Starting() {
                             </Tabs>
                         </Box>
 
-                        <TabPanel value="0"
-                        >
+                        {value === '0' && (
                             <Box
                                 display={'flex'}
+                                className='content'
                                 flexDirection={'column'}
-                                sx={{
-                                    py: {
-                                        xs: '25%',
-                                        sm: '35%',
-                                        md: 10,
-                                    },
-                                }}
+                                p={2}
+                                alignItems={'center'}
                             >
-                                <Box mb={2}>
-                                    <Typography variant='h4' textAlign={'center'}>
+                                <Box
+                                    display={'flex'}
+                                    justifyContent={'center'}
+                                >
+                                    <Typography
+                                        variant='h5'
+                                    >
                                         Login
                                     </Typography>
                                 </Box>
                                 <form onSubmit={loginFormik.handleSubmit}>
-                                    <TextField
-                                        variant='outlined'
-                                        margin='normal'
-                                        label='Email'
-                                        fullWidth
-                                        name="email"
-                                        onChange={loginFormik.handleChange}
-                                        value={loginFormik.values.email}
-                                    />
-                                    <TextField
-                                        variant='outlined'
-                                        margin='normal'
-                                        label='Password'
-                                        fullWidth
-                                        name="password"
-                                        onChange={loginFormik.handleChange}
-                                        value={loginFormik.values.password}
-                                        type="password"
-                                    />
                                     <Box
-                                        height={50}
                                         display={'flex'}
-                                        mt={2}
+                                        justifyContent={'center'}
+                                        flexDirection={'column'}
                                     >
 
-                                        <Button variant='contained' fullWidth
+                                        <TextField
+                                            variant='outlined'
+                                            fullWidth
+                                            margin='normal'
+                                            label='Email'
+                                            type='email'
+                                        >
 
-                                            color='secondary' type="submit">
-                                            Login
-                                        </Button>
+                                        </TextField>
+
+                                        <TextField
+                                            variant='outlined'
+                                            fullWidth
+                                            margin='normal'
+                                            label='Password'
+                                            type='password'
+                                        >
+                                        </TextField>
+
+                                        <FormControlLabel control={<Checkbox color='secondary' onClick={handleCheckbox} checked={checked} />} label="Remember me" />
+
+                                        <Box
+                                            mt={2}
+                                        >
+                                            <Button
+                                                variant='contained'
+                                                color='secondary'
+                                                fullWidth
+                                                size='large'
+                                                type='submit'
+                                            >
+                                                Login
+                                            </Button>
+                                        </Box>
+
                                     </Box>
+
                                 </form>
+
                             </Box>
 
-                        </TabPanel>
+                        )}
 
-                        <TabPanel value="1">
+                        {value === '1' && (
                             <Box
                                 display={'flex'}
-                                sx={{
-                                    py: {
-                                        xs: '25%',
-                                        sm: '35%',
-
-                                        md: 10,
-                                    },
-                                }}
+                                className='content'
                                 flexDirection={'column'}
+                                p={2}
+                                alignItems={'center'}
                             >
-
-                                <Box mb={2}>
-                                    <Typography variant='h4' textAlign={'center'}>
+                                <Box
+                                    display={'flex'}
+                                    justifyContent={'center'}
+                                >
+                                    <Typography
+                                        variant='h5'
+                                    >
                                         Register
                                     </Typography>
                                 </Box>
                                 <form onSubmit={registerFormik.handleSubmit}>
-                                    <TextField
-                                        variant='outlined'
-                                        margin='normal'
-                                        label='Email'
-                                        fullWidth
-                                        name="email"
-                                        onChange={registerFormik.handleChange}
-                                        value={registerFormik.values.email}
-                                    />
-                                    <TextField
-                                        variant='outlined'
-                                        margin='normal'
-                                        label='Password'
-                                        fullWidth
-                                        name="password"
-                                        onChange={registerFormik.handleChange}
-                                        value={registerFormik.values.password}
-                                        type="password"
-                                    />
-                                    <TextField
-                                        variant='outlined'
-                                        margin='normal'
-                                        label='Username'
-                                        fullWidth
-                                        name="username"
-                                        onChange={registerFormik.handleChange}
-                                        value={registerFormik.values.username}
-                                    />
                                     <Box
-                                        height={50}
-                                        mt={2}
                                         display={'flex'}
+                                        justifyContent={'center'}
+                                        flexDirection={'column'}
+
                                     >
+                                        <TextField
+                                            variant='outlined'
+                                            fullWidth
+                                            margin='normal'
+                                            label='Email'
+                                            type='email'
 
-                                        <Button variant='contained' fullWidth
+                                        >
 
-                                            color='secondary' type="submit">
-                                            Register
-                                        </Button>
+                                        </TextField>
+
+                                        <TextField
+                                            variant='outlined'
+                                            fullWidth
+                                            margin='normal'
+                                            label='Username'
+
+                                        >
+
+                                        </TextField>
+
+                                        <TextField
+                                            variant='outlined'
+                                            fullWidth
+                                            margin='normal'
+                                            label='Password'
+                                            type='password'
+
+                                        >
+
+                                        </TextField>
+
+                                        <TextField
+                                            variant='outlined'
+                                            fullWidth
+                                            margin='normal'
+                                            label='Confirm Password'
+                                            type='password'
+
+
+                                        >
+
+                                        </TextField>
+
+                                        <Box
+                                            mt={2}
+                                        >
+                                            <Button
+                                                variant='contained'
+                                                color='secondary'
+                                                fullWidth
+                                                size='large'
+                                                type='submit'
+                                            >
+                                                Register
+                                            </Button>
+                                        </Box>
+
                                     </Box>
 
                                 </form>
+
                             </Box>
 
-                        </TabPanel>
+                        )}
+
+
                     </TabContext>
-                </Box>
-            </Grid2>
-        </Grid2>
+                </Box >
+            </Grid2 >
+        </Grid2 >
     );
 }
 

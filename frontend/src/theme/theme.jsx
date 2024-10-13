@@ -16,6 +16,19 @@ export const theme = createTheme({
         },
     },
     components: {
+        MuiCheckbox: {
+            styleOverrides: {
+                root: {
+                    color: 'white',
+                    '&.Mui-checked': {
+                        color: secondaryColor,
+                    },
+                    '&:hover': {
+                        backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                    },
+                },
+            },
+        },
         MuiTextField: {
             styleOverrides: {
                 root: {
@@ -70,6 +83,7 @@ export const theme = createTheme({
                     },
                     '&:hover': {
                         color: secondaryColor,
+
                     },
                 },
             },

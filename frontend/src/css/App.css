@@ -22,3 +22,11 @@ body {
   padding: 1em;
   display: flex;
 }
+
+.content {
+  height: calc(85vh - 50px);
+  overflow-y: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
