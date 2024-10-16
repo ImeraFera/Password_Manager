@@ -7,10 +7,8 @@ function Navbar() {
 
         <>
             <Box
-                m={0}
-                p={0}
-                mb={2}
                 display={'flex'}
+                mb={2}
             >
                 <AppBar position="static">
                     <Toolbar>
@@ -28,8 +26,8 @@ function Navbar() {
                         </Typography>
 
                     </Toolbar>
-                </AppBar>
-            </Box>
+                </AppBar >
+            </Box >
         </>
     )
 }
