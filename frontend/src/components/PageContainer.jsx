@@ -1,10 +1,18 @@
 import React, { Children } from 'react'
-import { Container } from '@mui/material'
+import { Box, Container } from '@mui/material'
 function PageContainer({ children }) {
     return (
+
         <Container
             maxWidth='md'
+            sx={{
+                height: '100vh',
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+            }}
         >
+
             {children}
         </Container>
     )

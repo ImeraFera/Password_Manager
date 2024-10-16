@@ -27,6 +27,7 @@ function Starting() {
         },
         onSubmit: (values) => {
             console.log('Login Values:', values);
+            navigation('/home');
         },
     });
 
@@ -71,11 +72,11 @@ function Starting() {
 
                         {value === '0' && (
                             <Box
-                                display={'flex'}
                                 className='content'
                                 flexDirection={'column'}
                                 p={2}
                                 alignItems={'center'}
+                                justifyContent={'center'}
                             >
                                 <Box
                                     display={'flex'}
@@ -139,11 +140,11 @@ function Starting() {
 
                         {value === '1' && (
                             <Box
-                                display={'flex'}
                                 className='content'
                                 flexDirection={'column'}
                                 p={2}
                                 alignItems={'center'}
+                                justifyContent={'center'}
                             >
                                 <Box
                                     display={'flex'}
