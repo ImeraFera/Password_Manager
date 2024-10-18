@@ -66,7 +66,6 @@ function PasswordGenerator() {
                 display={'flex'}
                 flex={1}
                 flexDirection={'column'}
-                bgcolor={'#313131'}
                 p={2}
                 borderRadius={'1em'}
                 justifyContent={'space-between'}
@@ -154,7 +153,6 @@ function PasswordGenerator() {
 
                 <Box
                     display={'flex'}
-                    bgcolor={'#313131'}
                 >
                     <Box
                         justifyContent={'space-evenly'}

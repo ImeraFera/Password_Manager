@@ -12,13 +12,15 @@ body {
 .container {
   padding: 1em;
   background-color: rgba(49, 49, 49, 0.4);
-  height: 85vh;
+  min-height: 85vh;
+  max-height: 100vh;
   width: 100%;
   display: flex;
   border-radius: 1em;
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
+  overflow-y: auto;
 }
 
 .home-card {
@@ -45,4 +47,14 @@ body {
   box-shadow: 15px 15px 30px rgb(25, 25, 25),
     -10px -10px 30px rgb(70, 70, 70);
   transition: 0.5s;
+}
+
+
+/* Logs */
+
+
+.log-list-container {
+
+  overflow-y: auto;
+  height: auto;
 }

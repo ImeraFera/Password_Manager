@@ -1,6 +1,6 @@
 import React from 'react'
 import Navbar from '../components/Navbar'
-import { Avatar, Box, Button, Checkbox, Divider, FormControlLabel, Grid2, Stack, TextField } from '@mui/material'
+import { Avatar, Box, Button, Checkbox, Divider, FormControlLabel, FormGroup, Grid2, Stack, TextField, Typography } from '@mui/material'
 import { useFormik } from 'formik'
 
 function Profile() {
@@ -8,142 +8,168 @@ function Profile() {
 
     const updateFormik = useFormik({
         initialValues: {
-            username: '',
-            email: '',
+            recoveryEmail: '',
             password: '',
             confirmPassword: '',
         },
         onSubmit: async (values) => {
-
+            console.log(values)
         },
         validationSchema: null,
     })
+
+
     return (
         <Grid2
             container
-            height={'100vh'}
-            display={'flex'}
-            justifyContent={'center'}
-            alignItems={'center'}
+            className='container'
+            spacing={0}
         >
-            <Grid2 size={12}>
-                <Box className='content-container' flexDirection={'column'}>
-                    <Navbar></Navbar>
-                    <Box
-                        className='home-content'
-                        flexDirection={'column'}
+
+
+            <Grid2
+                size={12}
+                mb={2}
+            >
+                <Navbar></Navbar>
+            </Grid2>
+
+
+
+            <Grid2
+                size={12}
+                mb={2}
+            >
+                <Box
+                    display={'flex'}
+                    justifyContent={'center'}
+                >
+                    <Avatar
+                        sx={{
+                            width: '4em',
+                            height: '4em',
+                        }}
                     >
-                        <Box
-                            display={'flex'}
-                            p={2}
-                            bgcolor={'#313131'}
-                            justifyContent={'center'}
-                        >
-                            <Avatar
-                                sx={{
-                                    width: '4em',
-                                    height: '4em',
-                                }}
-                            >
-                            </Avatar>
-                        </Box>
-                        <Box
-                            display={'flex'}
-                            bgcolor={'#313131'}
-                            width={'100%'}
-                            justifyContent={'space-around'}
-                            flexWrap={'wrap'}
-                        >
-
-                            <form onSubmit={updateFormik.handleSubmit}>
-                                <Box
-                                    width={'100%'}
-                                    display={'flex'}
-                                    flexDirection={'column'}
-                                    mb={2}
-                                >
-                                    <TextField
-                                        variant='outlined'
-                                        label='Email'
-                                        fullWidth
-                                        margin='normal'
-                                        value={updateFormik.values.email}
-                                        onChange={updateFormik.handleChange}
-                                        type='email'
-                                        name='email'
-                                    >
-
-                                    </TextField>
-                                    <TextField
-                                        variant='outlined'
-                                        label='Username'
-                                        fullWidth
-                                        margin='normal'
-                                        value={updateFormik.values.email}
-                                        onChange={updateFormik.handleChange}
-                                        type='text'
-                                        name='username'
-                                    >
-
-                                    </TextField>
-                                    <TextField
-                                        variant='outlined'
-                                        label='Password'
-                                        fullWidth
-                                        margin='normal'
-                                        value={updateFormik.values.email}
-                                        onChange={updateFormik.handleChange}
-                                        type='password'
-                                        name='password'
-                                    >
-
-                                    </TextField>
-
-                                    <TextField
-                                        variant='outlined'
-                                        label='Confirm Password'
-                                        fullWidth
-                                        margin='normal'
-                                        value={updateFormik.values.email}
-                                        onChange={updateFormik.handleChange}
-                                        type='password'
-                                        name='password'
-                                    >
-
-                                    </TextField>
-                                    <Box
-                                        mt={2}
-                                    >
-
-                                    </Box>
-                                    <Button
-                                        variant='contained'
-                                        color='secondary'
-                                        fullWidth
-                                        type='submit'
-                                    >
-                                        Update
-                                    </Button>
-                                </Box>
-                            </form>
-
-                            <Box
-                                display={'flex'}
-                            >
-
-                                <Stack>
-                                    <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
-                                    <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
-                                    <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
-
-                                </Stack>
-
-                            </Box>
-                        </Box>
-                    </Box>
+                    </Avatar>
                 </Box>
             </Grid2>
-        </Grid2 >
+
+
+            <Grid2
+                size={{
+                    md: 6,
+                    sm: 6,
+                    xs: 12
+                }}
+                flexDirection={'column'}
+                display={'flex'}
+                justifyContent={'center'}
+                my={2}
+            >
+                <Box
+                >
+                    <Box
+                        display={'flex'}
+                        flexDirection={'column'}
+                        alignItems={'center'}
+                    >
+                        <TextField
+                            variant='outlined'
+                            margin='normal'
+                            label='Recovery Email'
+                            type='email'
+                            name='recoveryEmail'
+                            value={updateFormik.values.recoveryEmail}
+                            onChange={updateFormik.handleChange}
+                        >
+
+                        </TextField>
+                        <TextField
+                            variant='outlined'
+                            margin='normal'
+                            label='Password'
+                            type='password'
+                            name='password'
+                            value={updateFormik.values.password}
+                            onChange={updateFormik.handleChange}
+                        >
+
+                        </TextField>
+                        <TextField
+                            variant='outlined'
+                            label='Confirm Password'
+                            margin='normal'
+                            type='password'
+                            name='confirmPassword'
+                            value={updateFormik.values.confirmPassword}
+                            onChange={updateFormik.handleChange}
+                        >
+
+                        </TextField>
+                    </Box>
+
+                </Box>
+
+            </Grid2>
+
+            <Grid2
+                size={{
+                    md: 6,
+                    sm: 6,
+                    xs: 12
+                }}
+                display={'flex'}
+                justifyContent={'left'}
+                flexDirection={'row'}
+                my={2}
+            >
+
+                <Box
+                    display={'flex'}
+                    flexWrap={'wrap'}
+                    flexDirection={'column'}
+                    justifyContent={'space-evenly'}
+                    alignItems={'flex-start'}
+                >
+
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Lock my account if accessed from another location." />
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Automatically log out when session expires." />
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Send notifications when logging in from new devices." />
+                    <FormControlLabel control={<Checkbox defaultChecked />} label="Require two-factor authentication." />
+
+                </Box>
+
+
+            </Grid2>
+
+            <Grid2
+                size={12}
+                my={2}
+            >
+                <Box
+                    display={'flex'}
+                    justifyContent={'center'}
+                >
+                    <Box
+                        width={'75%'}
+                    >
+                        <Button
+                            variant='contained'
+                            color='secondary'
+                            type='submit'
+                            fullWidth
+                            onClick={updateFormik.handleSubmit}
+                        >
+                            Save
+                        </Button>
+                    </Box>
+
+                </Box>
+
+            </Grid2>
+
+        </Grid2>
+
     )
 }
 
