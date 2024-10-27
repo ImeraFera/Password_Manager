@@ -45,194 +45,196 @@ function Starting() {
     });
 
     return (
-        <Grid2
-            container
-            className='container'
-            flexDirection={'column'}
-            spacing={0}
-        >
 
+
+        <>
             <Grid2
-                size={12}
-                p={2}
+                container
             >
+                <Grid2
+                    size={12}
+                    p={2}
+                >
 
-                <Box display={'flex'} justifyContent={'center'}>
-                    <Tabs value={value} onChange={handleChange}                    >
-                        <Tab
-                            label='Login'
-                            value={'0'}
-                        >
-                        </Tab>
-                        <Tab
-                            label='Register'
-                            value={'1'}
-                        >
-                        </Tab>
-                    </Tabs>
-                </Box>
+                    <Box display={'flex'} justifyContent={'center'}>
+                        <Tabs value={value} onChange={handleChange}                    >
+                            <Tab
+                                label='Login'
+                                value={'0'}
+                            >
+                            </Tab>
+                            <Tab
+                                label='Register'
+                                value={'1'}
+                            >
+                            </Tab>
+                        </Tabs>
+                    </Box>
+                </Grid2>
             </Grid2>
 
             <Grid2
-                size={12}
-                flexDirection={'column'}
-                display={'flex'}
-                p={2}
-                flex={1}
-                justifyContent={'center'}
-                alignItems={'center'}
-                height={'100%'}
+                container
+                className='content-container'
+                spacing={0}
             >
-                {(value === '0' && (
-                    <Box
-                        width={'100%'}
-                    >
-                        <Typography
-                            variant='h4'
-                            textAlign={'center'}
-                        >
-                            Login
-                        </Typography>
-
+                <Grid2
+                    size={12}
+                    flexDirection={'column'}
+                    display={'flex'}
+                    p={2}
+                    height={'68vh'}
+                    justifyContent={'center'}
+                    alignItems={'center'}
+                >
+                    {(value === '0' && (
                         <Box
-                            display={'flex'}
-                            alignItems={'center'}
-                            flexDirection={'column'}
+                            width={'100%'}
                         >
-                            <Box
-                                width={{
-                                    md: '50%',
-                                    sm: '100%',
-                                    xs: '100%',
-                                }}
+                            <Typography
+                                variant='h4'
+                                textAlign={'center'}
                             >
-                                <TextField
-                                    variant='outlined'
-                                    label='Email'
-                                    type='email'
-                                    name='email'
-                                    margin='normal'
-                                    fullWidth
+                                Login
+                            </Typography>
 
+                            <Box
+                                display={'flex'}
+                                alignItems={'center'}
+                                flexDirection={'column'}
+                            >
+                                <Box
+                                    width={{
+                                        md: '50%',
+                                        sm: '100%',
+                                        xs: '100%',
+                                    }}
                                 >
+                                    <TextField
+                                        variant='outlined'
+                                        label='Email'
+                                        type='email'
+                                        name='email'
+                                        margin='normal'
+                                        fullWidth
 
-                                </TextField>
+                                    >
 
-                                <TextField
-                                    variant='outlined'
-                                    label='Password'
-                                    type='password'
-                                    name='password'
-                                    margin='normal'
-                                    fullWidth
+                                    </TextField>
 
-                                >
+                                    <TextField
+                                        variant='outlined'
+                                        label='Password'
+                                        type='password'
+                                        name='password'
+                                        margin='normal'
+                                        fullWidth
+                                    >
+                                    </TextField>
 
-                                </TextField>
+                                    <FormControlLabel control={<Checkbox onChange={handleCheckbox} checked={checked} />} label="Remember me" />
 
-                                <FormControlLabel control={<Checkbox onChange={handleCheckbox} checked={checked} />} label="Remember me" />
+                                    <Button
+                                        variant='contained'
+                                        type='submit'
+                                        color='secondary'
+                                        fullWidth
+                                        onClick={loginFormik.handleSubmit}
+                                    >
+                                        Login
+                                    </Button>
+                                </Box>
 
-
-                                <Button
-                                    variant='contained'
-                                    type='submit'
-                                    color='secondary'
-                                    fullWidth
-                                    onClick={loginFormik.handleSubmit}
-                                >
-                                    Login
-                                </Button>
                             </Box>
-
                         </Box>
-                    </Box>
 
+                    ))}
 
-                ))}
-
-                {(value === '1' && (
-                    <Box
-                        width={'100%'}
-                    >
-                        <Typography
-                            variant='h4'
-                            textAlign={'center'}
-                        >
-                            Register
-                        </Typography>
-
+                    {(value === '1' && (
                         <Box
-                            display={'flex'}
-                            alignItems={'center'}
-                            flexDirection={'column'}
+                            width={'100%'}
                         >
-                            <Box
-                                width={{
-                                    md: '50%',
-                                    sm: '100%',
-                                    xs: '100%',
-                                }}
+                            <Typography
+                                variant='h4'
+                                textAlign={'center'}
                             >
-                                <TextField
-                                    variant='outlined'
-                                    label='Username'
-                                    type='text'
-                                    name='username'
-                                    margin='normal'
-                                    fullWidth
+                                Register
+                            </Typography>
 
+                            <Box
+                                display={'flex'}
+                                alignItems={'center'}
+                                flexDirection={'column'}
+                            >
+                                <Box
+                                    width={{
+                                        md: '50%',
+                                        sm: '100%',
+                                        xs: '100%',
+                                    }}
                                 >
+                                    <TextField
+                                        variant='outlined'
+                                        label='Username'
+                                        type='text'
+                                        name='username'
+                                        margin='normal'
+                                        fullWidth
 
-                                </TextField>
-                                <TextField
-                                    variant='outlined'
-                                    label='Email'
-                                    type='email'
-                                    name='email'
-                                    margin='normal'
-                                    fullWidth
+                                    >
 
-                                >
+                                    </TextField>
+                                    <TextField
+                                        variant='outlined'
+                                        label='Email'
+                                        type='email'
+                                        name='email'
+                                        margin='normal'
+                                        fullWidth
 
-                                </TextField>
-                                <TextField
-                                    variant='outlined'
-                                    label='Password'
-                                    type='password'
-                                    name='password'
-                                    margin='normal'
-                                    fullWidth
+                                    >
 
-                                >
+                                    </TextField>
+                                    <TextField
+                                        variant='outlined'
+                                        label='Password'
+                                        type='password'
+                                        name='password'
+                                        margin='normal'
+                                        fullWidth
 
-                                </TextField>
-                                <TextField
-                                    variant='outlined'
-                                    label='Confirm Password'
-                                    type='password'
-                                    name='confirmPassword'
-                                    margin='normal'
-                                    fullWidth
+                                    >
 
-                                >
-                                </TextField>
-                                <Button
-                                    variant='contained'
-                                    type='submit'
-                                    color='secondary'
-                                    fullWidth
-                                    onClick={registerFormik.handleSubmit}
-                                >
-                                    Register
-                                </Button>
+                                    </TextField>
+                                    <TextField
+                                        variant='outlined'
+                                        label='Confirm Password'
+                                        type='password'
+                                        name='confirmPassword'
+                                        margin='normal'
+                                        fullWidth
+
+                                    >
+                                    </TextField>
+                                    <Button
+                                        variant='contained'
+                                        type='submit'
+                                        color='secondary'
+                                        fullWidth
+                                        onClick={registerFormik.handleSubmit}
+                                    >
+                                        Register
+                                    </Button>
+                                </Box>
+
                             </Box>
-
                         </Box>
-                    </Box>
-                ))}
+                    ))}
 
-            </Grid2>
-        </Grid2 >
+                </Grid2>
+            </Grid2 >
+        </>
+
     );
 }
 

@@ -1,17 +1,18 @@
-import React, { Children } from 'react'
-import { Box, Container } from '@mui/material'
+import React from 'react'
+import { Box, Container, Grid2 } from '@mui/material'
+import Navbar from './Navbar'
 function PageContainer({ children }) {
     return (
 
         <Container
             maxWidth='md'
             sx={{
-                height: '100vh',
-                display: 'flex',
-                justifyContent: 'center',
-                alignItems: 'center',
+                height: '85vh',
+                mx: 2,
             }}
+            className='container'
         >
+
 
             {children}
         </Container>

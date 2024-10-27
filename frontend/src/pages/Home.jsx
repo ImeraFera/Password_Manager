@@ -16,36 +16,34 @@ function Home() {
     const navigation = useNavigate();
 
     return (
-        <Grid2
-            container
-            className='container'
-            flexDirection={'column'}
-            spacing={0}
-        >
+
+        <>
             <Grid2
-                size={12}
+                container
             >
-                <Navbar></Navbar>
+                <Grid2
+                    size={12}
+                >
+                    <Navbar></Navbar>
+                </Grid2>
             </Grid2>
 
-            <Grid2
-                size={12}
-                flex={1}
-                flexDirection={'row'}
-                display={'flex'}
-                flexWrap={'wrap'}
-                p={2}
-                width={'100%'}
+
+            <Grid2 container p={1} spacing={2} className='content-container'
+                height='67vh'
             >
 
                 <Grid2
-                    size={{ md: 4, sm: 6, xs: 6 }}
-                    p={1}
-                    justifyContent={'center'}
-                    alignItems={'center'}
+                    size={{
+                        md: 4, sm: 6, xs: 6
+                    }}
                     display={'flex'}
+
                 >
                     <Box
+                        display={'flex'}
+                        justifyContent={'center'}
+                        alignItems={'center'}
                         className='home-card'
                         onClick={() => navigation('/password-case')}
                     >
@@ -56,13 +54,16 @@ function Home() {
                 </Grid2>
 
                 <Grid2
-                    size={{ md: 4, sm: 6, xs: 6 }}
-                    p={1}
-                    justifyContent={'center'}
-                    alignItems={'center'}
+                    size={{
+                        md: 4, sm: 6, xs: 6
+                    }}
                     display={'flex'}
+
                 >
                     <Box
+                        display={'flex'}
+                        justifyContent={'center'}
+                        alignItems={'center'}
                         className='home-card'
                         onClick={() => navigation('/password-generator')}
 
@@ -74,13 +75,16 @@ function Home() {
                 </Grid2>
 
                 <Grid2
-                    size={{ md: 4, sm: 6, xs: 6 }}
-                    p={1}
-                    justifyContent={'center'}
-                    alignItems={'center'}
+                    size={{
+                        md: 4, sm: 6, xs: 6
+                    }}
                     display={'flex'}
+
                 >
                     <Box
+                        display={'flex'}
+                        justifyContent={'center'}
+                        alignItems={'center'}
                         className='home-card'
                         onClick={() => navigation('/am-i-safe')}
 
@@ -92,13 +96,16 @@ function Home() {
                 </Grid2>
 
                 <Grid2
-                    size={{ md: 4, sm: 6, xs: 6 }}
-                    p={1}
-                    justifyContent={'center'}
-                    alignItems={'center'}
+                    size={{
+                        md: 4, sm: 6, xs: 6
+                    }}
                     display={'flex'}
+
                 >
                     <Box
+                        display={'flex'}
+                        justifyContent={'center'}
+                        alignItems={'center'}
                         className='home-card'
                         onClick={() => navigation('/logs')}
 
@@ -110,13 +117,16 @@ function Home() {
                 </Grid2>
 
                 <Grid2
-                    size={{ md: 4, sm: 6, xs: 6 }}
-                    p={1}
-                    justifyContent={'center'}
-                    alignItems={'center'}
+                    size={{
+                        md: 4, sm: 6, xs: 6
+                    }}
                     display={'flex'}
+
                 >
                     <Box
+                        display={'flex'}
+                        justifyContent={'center'}
+                        alignItems={'center'}
                         className='home-card'
                         onClick={() => navigation('/backup')}
 
@@ -128,13 +138,16 @@ function Home() {
                 </Grid2>
 
                 <Grid2
-                    size={{ md: 4, sm: 6, xs: 6 }}
-                    p={1}
-                    justifyContent={'center'}
-                    alignItems={'center'}
+                    size={{
+                        md: 4, sm: 6, xs: 6
+                    }}
                     display={'flex'}
+
                 >
                     <Box
+                        display={'flex'}
+                        justifyContent={'center'}
+                        alignItems={'center'}
                         className='home-card'
                         onClick={() => navigation('/profile')}
 
@@ -145,8 +158,9 @@ function Home() {
                     </Box>
                 </Grid2>
 
+
             </Grid2>
-        </Grid2>
+        </>
 
     )
 }

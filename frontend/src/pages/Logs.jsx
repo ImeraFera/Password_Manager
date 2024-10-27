@@ -8,88 +8,98 @@ import Log from '../components/Log';
 
 function Logs() {
     return (
-        <Grid2
-            container
-            className='container'
-            spacing={0}
-        >
-            <Grid2
-                size={12}
-                mb={2}
-            >
-                <Navbar></Navbar>
-            </Grid2>
 
+
+        <>
             <Grid2
-                size={12}
-                border={2}
-                borderColor={'#414141'}
+                container
             >
                 <Grid2
                     size={12}
-                    bgcolor={'#313131'}
-                    flexDirection={'row'}
-                    alignItems={'center'}
-                    display={'flex'}
-                    justifyContent={'space-between'}
-                    p={2}
                 >
+                    <Navbar></Navbar>
+                </Grid2>
+            </Grid2>
 
-                    <Box
+            <Grid2
+                container
+                className='content-container'
+                spacing={0}
+            >
+
+
+                <Grid2
+                    mt={2}
+                    size={12}
+                    border={2}
+                    borderColor={'#414141'}
+                >
+                    <Grid2
+                        size={12}
+                        bgcolor={'#313131'}
+                        flexDirection={'row'}
+                        alignItems={'center'}
                         display={'flex'}
+                        justifyContent={'space-between'}
+                        p={2}
                     >
+
                         <Box
                             display={'flex'}
-                            alignItems={'center'}
-                            mr={1}
                         >
-                            <DiTerminal
-                                size={24}
-                            ></DiTerminal>
-                        </Box>
-                        <Box>
-                            <Typography
-                                variant='body1'
-
+                            <Box
+                                display={'flex'}
+                                alignItems={'center'}
+                                mr={1}
                             >
-                                Terminal
-                            </Typography>
+                                <DiTerminal
+                                    size={24}
+                                ></DiTerminal>
+                            </Box>
+                            <Box>
+                                <Typography
+                                    variant='body1'
+
+                                >
+                                    Terminal
+                                </Typography>
+                            </Box>
                         </Box>
-                    </Box>
-                    <IconButton>
-                        <IoIosCopy
-                            color='white'
-                            size={18}
-                        ></IoIosCopy>
-                    </IconButton>
+                        <IconButton>
+                            <IoIosCopy
+                                color='white'
+                                size={18}
+                            ></IoIosCopy>
+                        </IconButton>
 
-                </Grid2>
+                    </Grid2>
 
-                <Grid2
-                    size={12}
-                    p={1}
-                    display={'flex'}
-                >
-
-                    <Stack
-                        className='log-list-container'
-                        spacing={1}
-                        height={'54vh'}
+                    <Grid2
+                        size={12}
+                        p={1}
+                        display={'flex'}
                     >
-                        {Array(19).fill(null).map((log, index) => {
-                            return (
-                                <Log key={index}
-                                    type='Warning'
-                                    content='lorem ipsum  dolor sit amet, con  et justo od   reprehenderit in voluptate velit esse cillum'
-                                    date={new Date().toUTCString()}
-                                ></Log>
-                            )
-                        })}
-                    </Stack>
 
+                        <Stack
+                            className='log-list-container'
+                            spacing={1}
+                            height={'54vh'}
+                        >
+                            {Array(19).fill(null).map((log, index) => {
+                                return (
+                                    <Log key={index}
+                                        type='Warning'
+                                        content='lorem ipsum  dolor sit amet, con  et justo od   reprehenderit in voluptate velit esse cillum'
+                                        date={new Date().toUTCString()}
+                                    ></Log>
+                                )
+                            })}
+                        </Stack>
+
+                    </Grid2>
                 </Grid2>
             </Grid2>
-        </Grid2>
+        </>
 
     )
 }
