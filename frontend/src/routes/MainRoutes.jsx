@@ -38,6 +38,11 @@ function MainRoutes() {
                     path='/password-case'
                     element={<PasswordCase />}
                 />
+
+                <Route
+                    path='/password-case/:id'
+                    element={<PasswordCase />}
+                />
                 <Route
                     path='/am-i-safe'
                     element={<AmISafe />}

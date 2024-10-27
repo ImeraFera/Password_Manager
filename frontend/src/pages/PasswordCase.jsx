@@ -10,8 +10,16 @@ import Navbar from '../components/Navbar';
 import { Scrollbars } from 'react-custom-scrollbars-2';
 import { FaKey } from "react-icons/fa";
 import VaultListItem from '../components/VaultListItem'
+import { useParams } from 'react-router-dom'
+import VaultItem from '../components/VaultItem';
 
 function PasswordCase() {
+
+
+
+    const { id } = useParams();
+
+
     const [openDialog, setOpenDialog] = useState(false);
     const handleOpen = () => setOpenDialog(true);
     const handleClose = () => setOpenDialog(false);
@@ -220,57 +228,104 @@ function PasswordCase() {
 
                 </Grid2>
 
-                <Grid2
-                    size={{
-                        md: 8,
-                        sm: 6,
-                        xs: 12,
-                    }}
-                    display={'flex'}
-                    flexDirection={'column'}
-                    borderColor={'rgba(255, 255, 255, 0.2)'}
-                    borderRadius={'0.5em'}
-                    sx={{
-                        boxShadow: '0px 0px 3px 3px rgba(0, 0, 0, .25 )'
+                {(!id) ? (
+                    <Grid2
+                        size={{
+                            md: 8,
+                            sm: 6,
+                            xs: 12,
+                        }}
+                        display={'flex'}
+                        flexDirection={'column'}
+                        borderColor={'rgba(255, 255, 255, 0.2)'}
+                        borderRadius={'0.5em'}
+                        sx={{
+                            boxShadow: '0px 0px 3px 3px rgba(0, 0, 0, .25 )'
 
-                    }}
-                >
-                    <Scrollbars
-                        style={{ width: '100%', height: '66vh' }}
-                        autoHide
-                        renderThumbVertical={({ style, ...props }) => (
-                            <div
-                                {...props}
-                                style={{
-                                    ...style,
-                                    backgroundColor: '#4b8100',
-                                    borderRadius: '1em',
-                                    width: '.2em',
-                                }}
-                            />
-                        )}
+                        }}
                     >
-                        <Box
-                            width={'100%'}
-                            maxHeight={500}
-                            height={'100%'}
+                        <Scrollbars
+                            style={{ width: '100%', height: '66vh' }}
+                            autoHide
+                            renderThumbVertical={({ style, ...props }) => (
+                                <div
+                                    {...props}
+                                    style={{
+                                        ...style,
+                                        backgroundColor: '#4b8100',
+                                        borderRadius: '1em',
+                                        width: '.2em',
+                                    }}
+                                />
+                            )}
                         >
-
-                            <Stack
-                                p={1}
-                                spacing={2}
+                            <Box
+                                width={'100%'}
+                                maxHeight={500}
+                                height={'100%'}
                             >
-                                <VaultListItem />
-                                <VaultListItem />
-                                <VaultListItem />
-                                <VaultListItem />
-                                <VaultListItem />
-                                <VaultListItem />
-                            </Stack>
-                        </Box>
-                    </Scrollbars>
 
-                </Grid2>
+                                <Stack
+                                    p={1}
+                                    spacing={2}
+                                >
+                                    <VaultListItem name="Gmail" type="login" id={0} />
+                                    <VaultListItem name="Facebook" type="login" id={1} />
+                                    <VaultListItem name="Credit Card" type="card" id={2} />
+
+                                </Stack>
+                            </Box>
+                        </Scrollbars>
+
+                    </Grid2>
+                ) : (
+                    <Grid2
+                        size={{
+                            md: 8,
+                            sm: 6,
+                            xs: 12,
+                        }}
+                        display={'flex'}
+                        flexDirection={'column'}
+                        borderColor={'rgba(255, 255, 255, 0.2)'}
+                        borderRadius={'0.5em'}
+                        sx={{
+                            boxShadow: '0px 0px 3px 3px rgba(0, 0, 0, .25 )'
+
+                        }}
+                    >
+                        <Scrollbars
+                            style={{ width: '100%', height: '66vh' }}
+                            autoHide
+                            renderThumbVertical={({ style, ...props }) => (
+                                <div
+                                    {...props}
+                                    style={{
+                                        ...style,
+                                        backgroundColor: '#4b8100',
+                                        borderRadius: '1em',
+                                        width: '.2em',
+                                    }}
+                                />
+                            )}
+                        >
+                            <Box
+                                width={'100%'}
+                                maxHeight={500}
+                                height={'100%'}
+                            >
+
+                                <VaultItem
+                                    id={id}
+                                ></VaultItem>
+
+                            </Box>
+                        </Scrollbars>
+
+                    </Grid2>
+                )}
+
+
 
                 <Dialog
                     open={openDialog}

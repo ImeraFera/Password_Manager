@@ -6,10 +6,7 @@ function VaultListItem(props) {
 
     const navigation = useNavigate();
 
-    const { name, id } = props
-
-
-
+    const { name, type, id } = props
 
     return (
         <Box
@@ -36,7 +33,7 @@ function VaultListItem(props) {
                     outline: '2px dotted #000',
                 },
             }}
-            onClick={navigation('/password-case/')}
+            onClick={() => navigation("/password-case/" + id)}
         >
             <Box
                 display={'flex'}
@@ -54,7 +51,12 @@ function VaultListItem(props) {
                 <Typography
                     variant='body1'
                 >
-                    {name} My Vault
+                    {name}
+                </Typography>
+                <Typography
+                    variant='caption'
+                >
+                    {type}
                 </Typography>
             </Box>
         </Box>
