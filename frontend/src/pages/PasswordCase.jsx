@@ -6,20 +6,16 @@ import { HiMiniMagnifyingGlassCircle } from "react-icons/hi2";
 import { FaAddressCard } from "react-icons/fa";
 import { FaCreditCard } from "react-icons/fa";
 import { FaStickyNote } from "react-icons/fa";
+import { FaKey } from "react-icons/fa";
 import Navbar from '../components/Navbar';
 import { Scrollbars } from 'react-custom-scrollbars-2';
-import { FaKey } from "react-icons/fa";
 import VaultListItem from '../components/VaultListItem'
 import { useParams } from 'react-router-dom'
 import VaultItem from '../components/VaultItem';
 
 function PasswordCase() {
 
-
-
     const { id } = useParams();
-
-
     const [openDialog, setOpenDialog] = useState(false);
     const handleOpen = () => setOpenDialog(true);
     const handleClose = () => setOpenDialog(false);
@@ -264,7 +260,6 @@ function PasswordCase() {
                                 maxHeight={500}
                                 height={'100%'}
                             >
-
                                 <Stack
                                     p={1}
                                     spacing={2}
@@ -272,6 +267,8 @@ function PasswordCase() {
                                     <VaultListItem name="Gmail" type="login" id={0} />
                                     <VaultListItem name="Facebook" type="login" id={1} />
                                     <VaultListItem name="Credit Card" type="card" id={2} />
+                                    <VaultListItem name="Identity Card" type="identity" id={2} />
+                                    <VaultListItem name="Identity Card" type="note" id={2} />
 
                                 </Stack>
                             </Box>

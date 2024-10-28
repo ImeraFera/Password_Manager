@@ -2,7 +2,7 @@ import React from 'react'
 import { Box, Button, Divider, Stack, TextField, Typography } from '@mui/material'
 function VaultItem(props) {
 
-    const { id, name, username, email, createdDate, updatedDate, } = props;
+    const { id, name, type, url, username, email, createdDate, updatedDate, } = props;
     return (
         <Box
             p={2}
